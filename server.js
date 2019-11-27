@@ -1,4 +1,5 @@
 var redis = require("./caching/redis");
+var locations = require("./locations/locations");
 var service = require("./services/service");
 var moment = require('moment-timezone');
 const express = require('express')
@@ -9,6 +10,14 @@ var io = require('socket.io')(http);
 setInterval(() => {
     io.emit('asd');
 }, 10000);
+
+locations = locations.locations;
+
+locations.forEach(l => {
+    redis.save(l.nombre, JSON.stringify(l.coordinates));
+});
+
+
 
 app.get('/', (req, res) => {
     service.obtenerTodo().then((d) => {
