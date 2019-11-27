@@ -14,7 +14,7 @@ redis <a href="https://github.com/microsoftarchive/redis/releases/tag/win-3.2.10
 <code>cd ciudadesBack</code>
 <code>npm install</code>
 
-# Para instalar dependencias
+# Para Iniciar
 
 <code>node server.js</code>
 
